@@ -15,6 +15,7 @@ data/*
 
 src/utils/output_texts/*
 src/utils/projects/*
+src/utils/json/*
 
 !src/utils/output_texts/.gitkeep
 !src/utils/projects/.gitkeep

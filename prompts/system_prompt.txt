@@ -1,22 +1,361 @@
-Role: You are a data extraction specialist focused on Italian Third Sector project reports.
+================================================================================
+HOW TO USE THIS PROMPT
+================================================================================
+ 
+For each project:
+1. Start a NEW ChatGPT conversation (keeps context clean per project)
+2. Upload the project's .txt file as an attachment
+3. Copy and paste the full prompt below into the chat
+4. Save the JSON output to a file named <project_name>.json
+ 
+Once you have all 11 JSON files, run script 04, which will
+assemble them automatically into a single Excel spreadsheet.
+ 
+================================================================================
+THE PROMPT - copy everything between the arrows
+================================================================================
+▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
+ 
+You are a data extraction assistant working on behalf of Fondazione del Monte di Bologna e Ravenna. I am attaching a .txt file containing all documents for one funded project, extracted from the original PDFs and Excel files.
+ 
+ABOUT THE ATTACHED FILE:
+The .txt file is structured as follows. Each source document is clearly labelled with "SOURCE FILE: <filename>". The typical project contains:
+- "Modulo rendicontazione parte 1" (PDF): narrative report - project description, objectives, activities carried out, beneficiaries reached, partnerships. Best source for fields 01, 03, 08-12, 13-37, 40-41.
+- "Modulo rendicontazione parte 2" (PDF or Excel): financial accountability - budget breakdown, costs by category, income sources. Best source for fields 04-07.
+- "Template di comunicazione" (PDF): one-page summary with key numbers (beneficiary counts, partners, outcomes). Useful for cross-checking 13-37.
+- "Scheda aggiuntiva di rendicontazione" (Excel): structured Q&A with deeper qualitative information about activities, strategies, changes influenced, and sustainability. Best source for fields 38-46 and qualitative fields.
+Some projects may have additional files - read all of them.
+ 
+YOUR TASK:
+Extract 50 indicator values from these documents and return them as a single JSON object following the exact structure specified below.
+ 
+GENERAL RULES:
+1. Only extract information that is explicitly stated or very clearly implied in the documents. Do not infer, estimate, or fill in gaps with plausible values. If something is not in the documents, return null - a null is always better than a fabricated number.
+2. The vulnerability people indicators (fields 21-37) are the most likely to be absent or incomplete. Many documents only report a total beneficiary count without breakdowns. Return null for any breakdown not found rather than distributing the total.
+3. Terminology varies across documents - use semantic equivalents, and in particular treat these as equivalent:beneficiari / destinatari /  utenti / partecipanti / persone raggiunte / coinvolte.
+4. For NUMERIC fields: return a number only (no € signs, no units, no text). If a range is given, use the final/higher figure. If the same figure appears in multiple documents, prefer the most specific and most recent source (rendicontazione finale > scheda aggiuntiva > template).
+5. For CATEGORY fields: return exactly one of the listed options. If multiple apply, return all that apply separated by " | ".
+6. For TEXT/LIST fields: return a concise plain-text answer. For lists of organisations, separate names with " | ".
+7. For SI/NO fields: return "SI" if the project clearly involves that dimension, "NO" if it does not. When genuinely uncertain, return "NO" rather than guessing "SI".
+8. For EVERY field also return:
+   - "confidence": "HIGH" if explicitly stated, "MEDIUM" if inferred from context, "LOW" if uncertain or estimated.
+   - "source": a short verbatim snippet (max 20 words) from the document that supports the value. If no source text exists (e.g. for a null value or a calculated total), write null.
+9. Return ONLY valid JSON. No explanation, no markdown, no code fences.
+ 
+---
+ 
+OUTPUT FORMAT - return exactly this JSON structure with all 50 keys:
+ 
+{
+  "project_name": "<official project name as found in the documents>",
+  "organisation_name": "<name of the applicant organisation>",
+ 
+  "01_aree_tematiche": {
+    "value": "<one or more of: Sociale | Cultura | Sviluppo locale | Ricerca | Comunicazione | Attività istituzionali>",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote>"
+  },
+  "02_programma_raggruppamento": {
+    "value": "<name of the programme or call (bando), e.g. ECCCO, Bando X>",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote>"
+  },
+  "03_ruolo_fondazione": {
+    "value": "<one of: Partner operativo | Partner strategico | Promotrice capofila>",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote>"
+  },
+  "04_budget_complessivo": {
+    "value": <total project budget, number in euros>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote>"
+  },
+  "05_quota_fondazione": {
+    "value": <amount funded by the Foundation, number in euros>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote>"
+  },
+  "06_risorse_non_monetarie_fondazione": {
+    "value": "<description of non-monetary resources from the Foundation, or null>",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "07_quota_altre_organizzazioni": {
+    "value": <co-funding from other organisations, number in euros>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote>"
+  },
+  "08_org_cofinanziatrici": {
+    "value": "<names of co-financing organisations separated by | , or null>",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "09_org_partner_non_finanziatrici": {
+    "value": "<names of non-financing partner organisations separated by |>",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote>"
+  },
+  "10_durata": {
+    "value": "<one of: Brevissima durata | Breve durata | Annuale | Pluriennale>",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote>"
+  },
+  "11_frequenza": {
+    "value": "<one of: One shot | Ripetuto ogni anno>",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote>"
+  },
+  "12_livello_territoriale": {
+    "value": "<one of: Nazionale | Regionale | Interprovinciale (Bologna e Ravenna) | Provinciale (più comuni di Bologna) | Provinciale (più comuni di Ravenna) | Comunale generale (comune in prov. di Bologna) | Comunale generale (comune in prov. di Ravenna) | Area specifica (es. quartiere, frazione)>",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote>"
+  },
+ 
+  "13_n_coop_sociali": {
+    "value": <number of social cooperatives that are intermediate beneficiaries>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "14_n_associazioni_odv": {
+    "value": <number of associations and ODV that are intermediate beneficiaries>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "15_n_altre_org_nonprofit": {
+    "value": <number of other non-profits (e.g. parishes) that are intermediate beneficiaries>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "16_n_ist_pubbliche_territorio": {
+    "value": <number of public territorial administration bodies>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "17_n_scuole_ist_formazione": {
+    "value": <number of public schools and training institutions>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "18_n_universita": {
+    "value": <number of public universities>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "19_n_altre_ist_pubbliche": {
+    "value": <number of other public institutions not in 16-18>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "20_n_altri_soggetti": {
+    "value": <number of individual freelancers or subjects without legal personality>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+ 
+  "21_n_persone_vulnerabilita_economica": {
+    "value": <number of final beneficiaries in economic/work/housing vulnerability>,
+    "note": "e.g. poverty, deprivation, unemployment, homeless",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "22_n_persone_disabilita": {
+    "value": <number with physical, mental, sensory or relational disability>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "23_n_persone_vulnerabilita_psicosociale": {
+    "value": <number in psycho-social vulnerability>,
+    "note": "e.g. isolation, addictions, school dropout risk, deviant behaviour",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "24_n_persone_vulnerabilita_migratoria": {
+    "value": <number vulnerable due to migration background>,
+    "note": "e.g. ethnic minorities, asylum seekers, refugees, non-Italian nationals",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "25_n_persone_altre_vulnerabilita": {
+    "value": <number in other vulnerability conditions>,
+    "note": "e.g. prisoners, trafficking victims, gender discrimination victims",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "26_n_persone_vulnerabilita_multipla": {
+    "value": <number with multiple overlapping vulnerabilities, each person counted once>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+ 
+  "27_n_minori_0_18_vulnerabili": {
+    "value": <number of minors 0-18 in one or more vulnerability conditions>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "28_n_giovani_adulti_18_35_vulnerabili": {
+    "value": <number of young adults 18-35 in vulnerability>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "29_n_adulti_36_65_vulnerabili": {
+    "value": <number of adults 36-65 in vulnerability>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "30_n_anziani_65plus_vulnerabili": {
+    "value": <number of elderly over 65 in vulnerability>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "31_n_donne_vulnerabili": {
+    "value": <number of women in vulnerability>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+ 
+  "32_n_persone_non_vulnerabili": {
+    "value": <number of final beneficiaries NOT in any vulnerability condition>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "33_n_minori_0_18_non_vulnerabili": {
+    "value": <number of minors 0-18 not in vulnerability>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "34_n_giovani_adulti_18_35_non_vulnerabili": {
+    "value": <number of young adults 18-35 not in vulnerability>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "35_n_adulti_36_65_non_vulnerabili": {
+    "value": <number of adults 36-65 not in vulnerability>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "36_n_anziani_65plus_non_vulnerabili": {
+    "value": <number of elderly over 65 not in vulnerability>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "37_n_donne_non_vulnerabili": {
+    "value": <number of women not in vulnerability>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+ 
+  "38_leva_1_scienza_tecnologia_cultura": {
+    "value": "SI|NO",
+    "note": "SI if project involves STEAM education, digital skills, scientific research, arts or cultural production",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "39_leva_2_capacity_building": {
+    "value": "SI|NO",
+    "note": "SI if project involves training educators/staff, strengthening organisational capacity",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "40_leva_3_azione_individuale_collettiva": {
+    "value": "SI|NO",
+    "note": "SI if project involves civic engagement, youth activism, volunteering, community participation",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "41_leva_4_governance": {
+    "value": "SI|NO",
+    "note": "SI if project involves multi-stakeholder governance, institutional network-building, formal partnerships",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "42_leva_5_finanza_economia": {
+    "value": "SI|NO",
+    "note": "SI if project involves microfinance, social enterprise, economic empowerment, financial inclusion",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+ 
+  "43_missione_1a_beni_ambientali": {
+    "value": "SI|NO",
+    "note": "SI if project involves environmental protection, climate action, natural commons",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "44_missione_1b_bisogni_base": {
+    "value": "SI|NO",
+    "note": "SI if project responds to basic needs: education, food, housing, healthcare, social inclusion",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "45_missione_2a_gestione_risorse": {
+    "value": "SI|NO",
+    "note": "SI if project involves sustainable resource management, urban regeneration, territorial planning",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "46_missione_2b_contrasto_disuguaglianze": {
+    "value": "SI|NO",
+    "note": "SI if project explicitly targets inequality reduction, social mobility, equal opportunities",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+ 
+  "47_n_org_beneficiarie_totale": {
+    "value": <total number of organisations benefiting from Foundation support - sum of fields 13-20>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": null
+  },
+  "48_org_beneficiarie_per_leva_missione": {
+    "value": "<which leve/missioni the beneficiary organisations relate to>",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  },
+  "49_n_persone_beneficiarie_totale": {
+    "value": <total number of final beneficiaries (people) reached by the project>,
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote>"
+  },
+  "50_persone_beneficiarie_per_leva_missione": {
+    "value": "<which leve/missioni the beneficiary people relate to>",
+    "confidence": "HIGH|MEDIUM|LOW",
+    "source": "<short quote or null>"
+  }
+}
+ 
+▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
+ 
+================================================================================
+TIPS FOR REVIEWING THE OUTPUT
+================================================================================
+ 
+- Use the "source" snippets as your primary verification tool. For any value
+  that looks surprising or has LOW confidence, search for the snippet text
+  in the .txt file to check the context.
+ 
+- Fields most likely to need manual review:
+    * 21-37 (vulnerability/age/gender breakdowns): often not stated explicitly,
+      expect many nulls - that is correct behaviour, not a failure.
+    * 38-46 (Leve and Missioni): require interpretation, expect MEDIUM.
+    * 13-20 (org type counts): the intermediate vs final beneficiary
+      distinction is subtle - check the source snippet carefully.
+ 
+- Field 47 should equal the sum of fields 13-20. Field 49 should be
+  consistent with the breakdowns in 27-37. Use these as sanity checks.
 
-Task: Analyze the provided Markdown text and extract the specific indicators listed below into a flat JSON object.
+- Non ha funzionato OCR
+    - Barca 59 - rendicontazione parte 2
+    - Ceis - rendicontazione parte 2, 2 ultime pagine (non mi sembrano rilevanti?)
+    - Dolce - excel file rendicontazione 2
+    - GLAB - 2 pdf, costo dipendenti (non sono sicuro se sono rilevanti)
+    - Salesiani - parts of rendicontazione parte 2 
 
-Indicators to Extract:
 
-project_name: Full title of the project.
-
-total_budget: Numeric value in Euro.
-
-beneficiaries_count: Total number of people helped.
-... [List all 40 here] ...
-
-Rules:
-
-Language: Extract the concepts as defined, but keep the values in the original language if they are names/proper nouns.
-
-Null Values: If an indicator is not mentioned in the text, return null. Do not guess.
-
-Data Types: Ensure dates are YYYY-MM-DD and currency is a float.
-
-Output: Return ONLY the JSON object. No conversational filler.
+================================================================================
+ASSEMBLING THE FINAL SPREADSHEET
+================================================================================
+ 
+Once you have all 11 JSON files saved, run script 04, which
+reads them from a folder and outputs a single Excel file with:
+  - One row per project, one column per indicator (values only)
+  - A second sheet with all confidence scores
+  - A third sheet with all source snippets for verification

@@ -1,0 +1,262 @@
+{
+  "project_name": "Sulla Buona Strada",
+  "organisation_name": "Società Dolce Società Cooperativa",
+  
+  "01_aree_tematiche": {
+    "value": "Sociale | Educazione | Sviluppo locale",
+    "confidence": "HIGH",
+    "source": "Il progetto Sulla Buona Strada ha inteso contrastare la povertà educativa e l’isolamento sociale dei minori e delle famiglie vulnerabili"
+  },
+  "02_programma_raggruppamento": {
+    "value": "Bando per progetti educativi e sociali",
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "03_ruolo_fondazione": {
+    "value": "Promotrice capofila",
+    "confidence": "HIGH",
+    "source": "Società Dolce (capofila), Seneca, IC5, Quartiere Navile, ACER"
+  },
+  "04_budget_complessivo": {
+    "value": 39874,
+    "confidence": "HIGH",
+    "source": "TOTALE ENTRATE (A+B+C) € 39.874,00"
+  },
+  "05_quota_fondazione": {
+    "value": 10011,
+    "confidence": "HIGH",
+    "source": "Risorse messe a disposizione dal richiedente (DIFFERENZA TRA COSTI E ENTRATE) € 10.011,17"
+  },
+  "06_risorse_non_monetarie_fondazione": {
+    "value": "null",
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "07_quota_altre_organizzazioni": {
+    "value": 0,
+    "confidence": "HIGH",
+    "source": "€ 0,00"
+  },
+  "08_org_cofinanziatrici": {
+    "value": "null",
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "09_org_partner_non_finanziatrici": {
+    "value": "IC5 | Quartiere Navile | ACER",
+    "confidence": "HIGH",
+    "source": "Cabina di regia attiva con cadenza regolare, composta da Società Dolce, IC5, Quartiere Navile, ACER"
+  },
+  "10_durata": {
+    "value": "Pluriennale",
+    "confidence": "HIGH",
+    "source": "Data di inizio 01/09/2024 Data di fine 30/08/2025"
+  },
+  "11_frequenza": {
+    "value": "Ripetuto ogni anno",
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "12_livello_territoriale": {
+    "value": "Interprovinciale (Bologna e Ravenna)",
+    "confidence": "HIGH",
+    "source": "Ambito territoriale prevalente del progetto Bologna, Interprovinciale Bologna e Ravenna"
+  },
+  
+  "13_n_coop_sociali": {
+    "value": 0,
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "14_n_associazioni_odv": {
+    "value": 0,
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "15_n_altre_org_nonprofit": {
+    "value": 0,
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "16_n_ist_pubbliche_territorio": {
+    "value": 0,
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "17_n_scuole_ist_formazione": {
+    "value": 0,
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "18_n_universita": {
+    "value": 0,
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "19_n_altre_ist_pubbliche": {
+    "value": 0,
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "20_n_altri_soggetti": {
+    "value": 0,
+    "confidence": "LOW",
+    "source": "null"
+  },
+  
+  "21_n_persone_vulnerabilita_economica": {
+    "value": 140,
+    "confidence": "HIGH",
+    "source": "Oltre200 minori, di cui almeno il70% in situazione di fragilità socio-economica"
+  },
+  "22_n_persone_disabilita": {
+    "value": "null",
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "23_n_persone_vulnerabilita_psicosociale": {
+    "value": "null",
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "24_n_persone_vulnerabilita_migratoria": {
+    "value": "null",
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "25_n_persone_altre_vulnerabilita": {
+    "value": "null",
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "26_n_persone_vulnerabilita_multipla": {
+    "value": "null",
+    "confidence": "LOW",
+    "source": "null"
+  },
+  
+  "27_n_minori_0_18_vulnerabili": {
+    "value": 140,
+    "confidence": "HIGH",
+    "source": "Oltre200 minori, di cui almeno il70% in situazione di fragilità socio-economica"
+  },
+  "28_n_giovani_adulti_18_35_vulnerabili": {
+    "value": "null",
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "29_n_adulti_36_65_vulnerabili": {
+    "value": "null",
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "30_n_anziani_65plus_vulnerabili": {
+    "value": "null",
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "31_n_donne_vulnerabili": {
+    "value": "null",
+    "confidence": "LOW",
+    "source": "null"
+  },
+  
+  "32_n_persone_non_vulnerabili": {
+    "value": 60,
+    "confidence": "HIGH",
+    "source": "null"
+  },
+  "33_n_minori_0_18_non_vulnerabili": {
+    "value": 60,
+    "confidence": "HIGH",
+    "source": "null"
+  },
+  "34_n_giovani_adulti_18_35_non_vulnerabili": {
+    "value": "null",
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "35_n_adulti_36_65_non_vulnerabili": {
+    "value": "null",
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "36_n_anziani_65plus_non_vulnerabili": {
+    "value": "null",
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "37_n_donne_non_vulnerabili": {
+    "value": "null",
+    "confidence": "LOW",
+    "source": "null"
+  },
+  
+  "38_leva_1_scienza_tecnologia_cultura": {
+    "value": "SI",
+    "confidence": "MEDIUM",
+    "source": "Attività culturali e formative, momenti di sostegno alla genitorialità e uno sportello socio-educativo"
+  },
+  "39_leva_2_capacity_building": {
+    "value": "SI",
+    "confidence": "HIGH",
+    "source": "Miglioramento del benessere scolastico, prevenzione della dispersione scolastica, rafforzamento delle competenze genitoriali"
+  },
+  "40_leva_3_azione_individuale_collettiva": {
+    "value": "SI",
+    "confidence": "HIGH",
+    "source": "Attività progettate e adattate in logica partecipativa, eventi di comunità con minori"
+  },
+  "41_leva_4_governance": {
+    "value": "SI",
+    "confidence": "HIGH",
+    "source": "Cabina di regia, che ha rappresentato il cuore del coordinamento, continuerà a riunirsi"
+  },
+  "42_leva_5_finanza_economia": {
+    "value": "NO",
+    "confidence": "HIGH",
+    "source": "null"
+  },
+  
+  "43_missione_1a_beni_ambientali": {
+    "value": "NO",
+    "confidence": "HIGH",
+    "source": "null"
+  },
+  "44_missione_1b_bisogni_base": {
+    "value": "SI",
+    "confidence": "HIGH",
+    "source": "Sostegno alla genitorialità, prevenzione della dispersione scolastica"
+  },
+  "45_missione_2a_gestione_risorse": {
+    "value": "SI",
+    "confidence": "LOW",
+    "source": "null"
+  },
+  "46_missione_2b_contrasto_disuguaglianze": {
+    "value": "SI",
+    "confidence": "HIGH",
+    "source": "Coinvolgimento delle famiglie e dei beneficiari nel miglioramento delle condizioni di vita"
+  },
+  
+  "47_n_org_beneficiarie_totale": {
+    "value": 6,
+    "confidence": "HIGH",
+    "source": "6 educatori 3 coordinatori"
+  },
+  "48_org_beneficiarie_per_leva_missione": {
+    "value": "Capacity building | Azione individuale collettiva",
+    "confidence": "HIGH",
+    "source": "Intervento mirato a migliorare il benessere scolastico, prevenire la dispersione"
+  },
+  "49_n_persone_beneficiarie_totale": {
+    "value": 600,
+    "confidence": "HIGH",
+    "source": "Oltre200 minori, di cui almeno il70% in situazione di fragilità socio-economica"
+  },
+  "50_persone_beneficiarie_per_leva_missione": {
+    "value": "Azione individuale collettiva | Bisogni base",
+    "confidence": "HIGH",
+    "source": "Coinvolgimento delle famiglie e delle scuole"
+  }
+}

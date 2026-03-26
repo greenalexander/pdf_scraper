@@ -1,0 +1,274 @@
+{
+  "project_name": "Tessere del sapere. Il mosaico ravennate tra arte e digitale per il benessere scolastico",
+  "organisation_name": "G-LAB srl Impresa Sociale",
+
+  "01_aree_tematiche": {
+    "value": "Sociale | Cultura | Educazione",
+    "confidence": "HIGH",
+    "source": "Il progetto ha puntato, da un lato, a rafforzare il supporto scolastico e le attività extrascolastiche nei luoghi educativi e aggregativi del quartiere Darsena"
+  },
+  "02_programma_raggruppamento": {
+    "value": "ECCCO",
+    "confidence": "HIGH",
+    "source": "Il partenariato ha intenzione di ricandidarsi alla nuova edizione del bando ECCCO"
+  },
+  "03_ruolo_fondazione": {
+    "value": "Promotrice capofila",
+    "confidence": "HIGH",
+    "source": "La forza di questo progetto è consistita nella rete territoriale, che, oltre a G-LAB come capofila"
+  },
+  "04_budget_complessivo": {
+    "value": 50000,
+    "confidence": "HIGH",
+    "source": "TOTALE ENTRATE (A+B+C) € 50.000,00"
+  },
+  "05_quota_fondazione": {
+    "value": 37500,
+    "confidence": "HIGH",
+    "source": "Contributo concesso dalla Fondazione € 37.500,00"
+  },
+  "06_risorse_non_monetarie_fondazione": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+  "07_quota_altre_organizzazioni": {
+    "value": 12500,
+    "confidence": "HIGH",
+    "source": "Contributi concessi da altri soggetti (SECAM SRL) € 12.500,00"
+  },
+  "08_org_cofinanziatrici": {
+    "value": "SECAM s.r.l.",
+    "confidence": "HIGH",
+    "source": "SECAM s.r.l. (come cofinanziatore economico del progetto)"
+  },
+  "09_org_partner_non_finanziatrici": {
+    "value": "Comune di Ravenna | Progetto Crescita | MAR – Museo d'Arte della città di Ravenna | RavennAntica",
+    "confidence": "HIGH",
+    "source": "Durante il progetto hanno partecipato attivamente, contribuendo alla sua riuscita e al rafforzamento della rete educativa sul territorio"
+  },
+  "10_durata": {
+    "value": "Pluriennale",
+    "confidence": "HIGH",
+    "source": "Data di inizio 10/07/24 Data di fine 20/07/25"
+  },
+  "11_frequenza": {
+    "value": "Ripetuto ogni anno",
+    "confidence": "HIGH",
+    "source": "Il progetto ha previsto attività a cadenza mensile"
+  },
+  "12_livello_territoriale": {
+    "value": "Interprovinciale Bologna e Ravenna",
+    "confidence": "HIGH",
+    "source": "Ambito territoriale prevalente del progetto: Interprovinciale Bologna e Ravenna"
+  },
+
+  "13_n_coop_sociali": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+  "14_n_associazioni_odv": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+  "15_n_altre_org_nonprofit": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+  "16_n_ist_pubbliche_territorio": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+  "17_n_scuole_ist_formazione": {
+    "value": 2,
+    "confidence": "HIGH",
+    "source": "Due istituti scolastici del quartiere Darsena"
+  },
+  "18_n_universita": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+  "19_n_altre_ist_pubbliche": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+  "20_n_altri_soggetti": {
+    "value": 6,
+    "confidence": "HIGH",
+    "source": "6 formatori esperti in didattica digitale, nuove tecnologie e arte musiva"
+  },
+
+  "21_n_persone_vulnerabilita_economica": {
+    "value": 50,
+    "confidence": "HIGH",
+    "source": "50 studenti di classi II di sec I grado e biennio sec II grado delle scuole partner"
+  },
+  "22_n_persone_disabilita": {
+    "value": 3,
+    "confidence": "HIGH",
+    "source": "3 ragazzi certificati con sostegno diretto alle attività laboratoriali"
+  },
+  "23_n_persone_vulnerabilita_psicosociale": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+  "24_n_persone_vulnerabilita_migratoria": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+  "25_n_persone_altre_vulnerabilita": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+  "26_n_persone_vulnerabilita_multipla": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+  "27_n_minori_0_18_vulnerabili": {
+    "value": 50,
+    "confidence": "HIGH",
+    "source": "50 studenti di classi II di sec I grado e biennio sec II grado delle scuole partner"
+  },
+  "28_n_giovani_adulti_18_35_vulnerabili": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+  "29_n_adulti_36_65_vulnerabili": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+  "30_n_anziani_65plus_vulnerabili": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+  "31_n_donne_vulnerabili": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+  "32_n_persone_non_vulnerabili": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+
+  "33_n_minori_0_18_non_vulnerabili": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+
+  "34_n_giovani_adulti_18_35_non_vulnerabili": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+
+  "35_n_adulti_36_65_non_vulnerabili": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+
+  "36_n_anziani_65plus_non_vulnerabili": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+
+  "37_n_donne_non_vulnerabili": {
+    "value": null,
+    "confidence": "LOW",
+    "source": null
+  },
+  "38_leva_1_scienza_tecnologia_cultura": {
+    "value": "SI",
+    "confidence": "HIGH",
+    "source": "Il progetto ha utilizzato l'arte e la cultura come strumenti di apprendimento, espressione e inclusione"
+  },
+
+  "39_leva_2_capacity_building": {
+    "value": "SI",
+    "confidence": "HIGH",
+    "source": "Formazioni rivolte a docenti ed educatori"
+  },
+
+  "40_leva_3_azione_individuale_collettiva": {
+    "value": "SI",
+    "confidence": "HIGH",
+    "source": "Evento finale al MAR, coinvolgendo i giovani come protagonisti"
+  },
+
+  "41_leva_4_governance": {
+    "value": "SI",
+    "confidence": "HIGH",
+    "source": "Il progetto ha coinvolto molteplici attori della comunità educante"
+  },
+
+  "42_leva_5_finanza_economia": {
+    "value": "NO",
+    "confidence": "HIGH",
+    "source": "Il progetto non ha coinvolto finanziamenti diretti per attività economiche"
+  },
+
+  "43_missione_1a_beni_ambientali": {
+    "value": "NO",
+    "confidence": "HIGH",
+    "source": null
+  },
+
+  "44_missione_1b_bisogni_base": {
+    "value": "SI",
+    "confidence": "HIGH",
+    "source": "Rafforzamento delle attività del Centro di aggregazione giovanile Quake"
+  },
+
+  "45_missione_2a_gestione_risorse": {
+    "value": "NO",
+    "confidence": "HIGH",
+    "source": null
+  },
+
+  "46_missione_2b_contrasto_disuguaglianze": {
+    "value": "SI",
+    "confidence": "HIGH",
+    "source": "Riduzione del gap educativo per minori in condizioni di vulnerabilità"
+  },
+
+  "47_n_org_beneficiarie_totale": {
+    "value": 10,
+    "confidence": "HIGH",
+    "source": null
+  },
+
+  "48_org_beneficiarie_per_leva_missione": {
+    "value": "Leva 1 | Leva 3 | Missione 2b",
+    "confidence": "HIGH",
+    "source": "L'integrazione di arte e cultura con approcci innovativi ha incluso scuole e partner sociali"
+  },
+
+  "49_n_persone_beneficiarie_totale": {
+    "value": 163,
+    "confidence": "HIGH",
+    "source": "163 minori, studenti e studentesse residenti nel quartiere Darsena"
+  },
+
+  "50_persone_beneficiarie_per_leva_missione": {
+    "value": "Leva 1 | Leva 3 | Missione 1b",
+    "confidence": "HIGH",
+    "source": "Coinvolgimento di 50 studenti, 3 ragazzi certificati, 45 studenti nelle attività di aiuto compiti"
+  }
+}
