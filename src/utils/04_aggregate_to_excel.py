@@ -48,8 +48,8 @@ from openpyxl.utils import get_column_letter
  
 # ── Configuration ─────────────────────────────────────────────────────────────
  
-JSON_DIR    = "json_outputs"
-OUTPUT_FILE = "aggregated_results.xlsx"
+JSON_DIR    = "src/utils/json_outputs"
+OUTPUT_FILE = "src/utils/aggregated_results.xlsx"
  
 # ── Field definitions ─────────────────────────────────────────────────────────
  

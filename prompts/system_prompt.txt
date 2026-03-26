@@ -342,6 +342,7 @@ TIPS FOR REVIEWING THE OUTPUT
 - Field 47 should equal the sum of fields 13-20. Field 49 should be
   consistent with the breakdowns in 27-37. Use these as sanity checks.
 
+At the end please check this info Alex: 
 - Non ha funzionato OCR
     - Barca 59 - rendicontazione parte 2
     - Ceis - rendicontazione parte 2, 2 ultime pagine (non mi sembrano rilevanti?)

@@ -16,6 +16,8 @@ data/*
 src/utils/output_texts/*
 src/utils/projects/*
 src/utils/json/*
+src/utils/aggregated_results.xlsx
 
 !src/utils/output_texts/.gitkeep
 !src/utils/projects/.gitkeep
+
