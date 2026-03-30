@@ -12,3 +12,9 @@ wheels/
 
 data/*
 !data/.gitkeep
+
+src/utils/output_texts/*
+src/utils/projects/*
+
+!src/utils/output_texts/.gitkeep
+!src/utils/projects/.gitkeep
